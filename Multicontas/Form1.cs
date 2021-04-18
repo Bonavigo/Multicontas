@@ -63,5 +63,12 @@ namespace Multicontas
         {
             MessageBox.Show("Para poder abrir outra conta, clique em \"Nova Conta\", logue no site do Habbo e abra o Launcher.\nVocê pode repetir o processo quantas vezes quiser.\nAssim que terminar, clique em \"Resetar\" para colocar o id padrão novamente.", "Funcionamento");
         }
+
+        private void btn_about_Click(object sender, EventArgs e)
+        {
+            int year = DateTime.Now.Year;
+            string copyright = "© " + year + " Bruno Bonavigo.\nCriado como projeto de teste para C#.";
+            MessageBox.Show(copyright, "Sobre");
+        }
     }
 }
