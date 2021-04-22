@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Xml;
+using System.Diagnostics;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace Multicontas
@@ -22,7 +24,7 @@ namespace Multicontas
         private void button1_Click(object sender, EventArgs e)
         {
             string userName = Environment.UserName;
-            string[] path = { @"C:\Users", userName, "AppData", "Local", "Sulake", "Habbo Launcher", "HabboFlash", "META-INF", "AIR", "application.xml" };
+            string[] path = { @"C:\Users", userName, "AppData", "Roaming", "Habbo Launcher", "downloads", "air", "8", "META-INF", "AIR", "application.xml" };
             string fullPath = Path.Combine(path);
             XmlDocument doc = new XmlDocument();
             doc.Load(fullPath);
@@ -32,7 +34,10 @@ namespace Multicontas
                 var elemento = elementos[i];
                 if (elemento.Name == "id")
                 {
-                    elemento.InnerText = "com.sulake.habboair" + DateTimeOffset.Now.ToUnixTimeSeconds();
+                    elemento.InnerText = "com.sulake.habboair.hhbr" + DateTimeOffset.Now.ToUnixTimeSeconds();
+                    string[] path_app = { @"C:\Users", userName, "AppData", "Roaming", "Habbo Launcher", "downloads", "air", "8", "Habbo.exe" };
+                    string fullPath_app = Path.Combine(path_app);
+                    Process.Start(fullPath_app);
                     MessageBox.Show("Arquivo alterado com sucesso!", "Sucesso!");
                 }
             }
@@ -42,7 +47,7 @@ namespace Multicontas
         private void button1_Click_1(object sender, EventArgs e)
         {
             string userName = Environment.UserName;
-            string[] path = { @"C:\Users", userName, "AppData", "Local", "Sulake", "Habbo Launcher", "HabboFlash", "META-INF", "AIR", "application.xml" };
+            string[] path = { @"C:\Users", userName, "AppData", "Roaming", "Habbo Launcher", "downloads", "air", "8", "META-INF", "AIR", "application.xml" };
             string fullPath = Path.Combine(path);
             XmlDocument doc = new XmlDocument();
             doc.Load(fullPath);
@@ -52,7 +57,7 @@ namespace Multicontas
                 var elemento = elementos[i];
                 if (elemento.Name == "id")
                 {
-                    elemento.InnerText = "com.sulake.habboair";
+                    elemento.InnerText = "com.sulake.habboair.hhbr";
                     MessageBox.Show("Resetado com sucesso!", "Sucesso!");
                 }
             }
