@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Xml;
 using System.Diagnostics;
-using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace Multicontas
